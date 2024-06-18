@@ -1,7 +1,7 @@
 public/models/*.glb filter=lfs diff=lfs merge=lfs -text
 public/models/chipwar.glb filter=lfs diff=lfs merge=lfs -text
-public/models/about,ev4.glb filter=lfs diff=lfs merge=lfs -text
+public/models/aboutmev4.glb filter=lfs diff=lfs merge=lfs -text
 public/models/theevery.glb filter=lfs diff=lfs merge=lfs -text
 dist/models/aboutmev4.glb filter=lfs diff=lfs merge=lfs -text
-dist/models/theevery.glb filter=lfs diff=lfs merge=lfs -text
 dist/models/chipwar.glb filter=lfs diff=lfs merge=lfs -text
+dist/models/theevery.glb filter=lfs diff=lfs merge=lfs -text
