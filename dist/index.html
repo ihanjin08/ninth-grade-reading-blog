@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="ihan.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Link to your style.css file -->
+    <title>Ihan's Bookshelf</title>
+  <script type="module" crossorigin src="/assets/index-BhCQCgny.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DfrQTylF.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div id="loading-cycling-text"></div>
+        <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+        </div>
+        <div id="loading-text">This may take up to 2 minutes. (<span id="current-number">0</span>/<span id="total-number">0</span>)</div>
+    </div>
+
+    <script>
+        function fadeInLoadingText() {
+            const loadingText = document.getElementById('loading-text');
+            loadingText.style.opacity = '1';
+        }
+
+        setTimeout(fadeInLoadingText, 5000);
+
+        function incrementCurrentNumber() {
+            var currentNumberElement = document.getElementById('current-number');
+            var currentNumber = parseInt(currentNumberElement.textContent, 10);
+            currentNumberElement.textContent = currentNumber + 1;
+
+            updateProgressBar(currentNumber + 1, parseInt(document.getElementById('total-number').textContent, 10));
+        }
+
+        function incrementTotalNumber() {
+            var totalNumberElement = document.getElementById('total-number');
+            var totalNumber = parseInt(totalNumberElement.textContent, 10);
+            totalNumberElement.textContent = totalNumber + 1;
+
+            updateProgressBar(parseInt(document.getElementById('current-number').textContent, 10), totalNumber + 1);
+        }
+
+        function updateProgressBar(current, total) {
+            const progressBar = document.getElementById('loading-bar');
+            const currentNumber = document.getElementById('current-number');
+            const totalNumber = document.getElementById('total-number');
+
+            const progressPercentage = (current / total) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            currentNumber.textContent = current;
+            totalNumber.textContent = total;
+
+            if (current === total) {
+                setTimeout(function () {
+                    document.getElementById('loading-overlay').style.opacity = '0';
+                    setTimeout(function () {
+                        document.getElementById('loading-overlay').style.display = 'none';
+                    }, 500);
+                }, 500);
+            }
+        }
+
+        function cycleLoadingText() {
+            const loadingTextElement = document.getElementById('loading-cycling-text');
+            const loadingMessages = [
+                'Loading models.',
+                'Loading models..',
+                'Loading models...',
+                'Loading models.',
+                'Loading models..',
+                'Loading models...',
+                'Loading models.',
+                // ... (your existing loading messages)
+            ];
+
+            let index = 0;
+
+            const cyclingInterval = setInterval(function () {
+                loadingTextElement.textContent = loadingMessages[index];
+                index = (index + 1) % loadingMessages.length;
+
+                if (index === loadingMessages.length - 1) {
+                    clearInterval(cyclingInterval);
+                }
+            }, 500);
+        }
+
+        function simulateDynamicLoading() {
+            incrementCurrentNumber();
+            incrementTotalNumber();
+        }
+
+        const loadingInterval = setInterval(simulateDynamicLoading, 1000);
+
+        setTimeout(function () {
+            document.getElementById('loading-overlay').style.opacity = '1';
+        }, 500);
+
+        setTimeout(cycleLoadingText, 0);
+    </script>
+
+    <div id="book-info-container-1" class="book-info-container" style="display: none;">
+        <h1>Somehow Finding a Passion in my Somewhat Erratic (and Practically Non-existent) Reading Journey.</h1>
+        <p>Hello reader! Welcome to my blog and my first post. In this first post, we're diving into the enigma that is my reading life and setting the stage for what's to come, as well as hopefully introducing myself as a reader. </p>
+        <h2>My reading journey.</h2>
+        <p>As you may have noticed from my quite sad-looking collection of books on my bookshelf, I do not read very often. In fact, I literally cannot remember the last book I read (that is for fun, of course, we always get assigned books in school TT) since the beginning of the pandemic. </p>
+        <p>I often sit here, wondering what happened. What happened to the days when I would read for fun? Where I could sit for entire weekends, not doing anything but reading, immersed in the carefree, simplistic narratives of “chapter books” (did anyone else call them that?).</p>
+        <a class="image-container" href="https://www.penguinbookshop.com/book/9780590353403">
+            <img src="https://images.booksense.com/images/403/353/9780590353403.jpg" alt="Description" height="200">
+        </a>
+        <a class="image-container" href="https://www.amazon.co.uk/Spy-School-Stuart-Gibbs/dp/1442421835">
+            <img src="https://m.media-amazon.com/images/I/71WDY-zaTSL._SL1500_.jpg" alt="Description" height="200">
+        </a>
+        <a class="image-container" href="https://www.amazon.ca/Vinci-Code-Dan-Brown/dp/0307474275">
+            <img src="https://m.media-amazon.com/images/I/91Q5dCjc2KL._SL1500_.jpg" alt="Description" height="200">
+        </a>
+        <p>Titles such as Spy School, The Davinci Code, and Harry Potter all fueled my ever-growing desire to read. The mesmerizing worlds of Hogwarts (though I think this is mostly because of Universal Studios :D), the ridiculous plot armor of Ben Ripley, and my innate interest in history all immersed me. Their easygoing writing style captivated my young self, and I would get lost in these worlds, reading with genuine passion. </p>
+        <p>And then all of a sudden, it stopped.</p>
+        <p>The assignments began piling on, all-nighters, growing in quantity, and homework, slowly eating into my precious minutes of reading. And as I caught myself reaching for my laptop before bedtime instead of my bookshelf, it was too late. </p>
+        <a href="https://www.spiceworks.com/tech/devops/articles/top-books-on-devops/">
+            <img src="https://images.spiceworks.com/800x400/wp-content/uploads/2023/08/07071207/Devops-Computer-Book.jpg" alt="Description" height="100">
+        </a>
+        <p>Of course, my reading didn't completely die out; there were still intense, albeit short, spurts of reading throughout my life, where I found a book I genuinely enjoyed (most notably Scythe and Shoe Dog). However, these short sparks and embers, attempting to “rekindle” the fire that was my passion for reading were quickly stomped out by the heavy workload of school.</p>
+        <p>Yet in these short moments of rediscovery, I've noticed a shift in my reading preferences towards more grounded and reality-based literature, particularly science and non-fiction titles.</p>
+        <h2>Discovering “my” genre.</h2>
+        <p>As you can probably tell, I love science.</p>
+        <p>Whether that be exploring the implications of the semiconductor supply chain on world politics, exploring a dystopian future in which a Google-like company takes over the world, or even sitting at home right now, coding this 3D website from scratch, my “safe place” lies within the realms of technology, science, and non-fiction writing. </p>
+        <p>The two books I've chosen are just the surface, merely representing the tip of the iceberg in this vast genre that I aspire to delve into (Homo Deus?). </p>
+        <a href="https://www.wired.com/story/loose-ends-tom-comitta/">
+            <img src="https://media.wired.com/photos/5f4ee313bb023d54b55e4e29/master/w_2240,c_limit/sci-fi-last-lines.jpg" alt="Description" height="100">
+        </a>
+        <h2>What I aspire to do with this blog.</h2>
+        <p>In this blog, I'll document my journey of diving deep into this newfound niche of mine, hopefully, less erratic than my previous reading excursions. </p>
+        <p>I'll keep the summaries down to a minimum, mostly talking about interesting things I read or the real-life implications/connections I have to share. And who knows, maybe I'll even venture outside my comfort zone (perhaps reading a classic :O)?</p>
+        <p>I won't promise too much though, as I do tend to over-promise and under-deliver (like I did with this blog :D).</p>
+        <p>So be prepared for the abysmal amount of reading you will see on this blog.</p>
+        <b>PRESS ESCAPE TO EXIT POST.</b>
+    </div>  
+
+    <div id="book-info-container-2" class="book-info-container" style="display: none;">
+        <h1>Science fiction, right?</h1>
+        <p>Hello reader. Today I'm here to ramble about some book I read. </p>
+        <p>As I alluded to in my previous post, the first book I am going to read this year is The Every by Dave Eggers.</p>
+        <p>My selection of this book was initially random, a random encounter on one of those display shelves. Honestly, my initial attraction to the book was not driven by any sort of reasoning; it had caught my eye simply because, I had encountered it the previous year, as the book was accidentally bound upside down. Intrigued, I had picked it up, not to delve into its pages, but to inspect if it had been fixed. (Though later I found out it was actually the sequel to the popular book/movie, The Circle, perhaps adding a layer of interest for me)</p>
+        <a href="https://www.amazon.co.uk/Every-Dave-Eggers/dp/0241535492">
+            <img src="https://m.media-amazon.com/images/I/61sDTJ+yd5S._SL1500_.jpg" alt="Description" width="150">
+        </a>
+        <h2>Some initial comments.</h2>
+        <p>"The Every" by Dave Eggers, is a mind-boggling(kinda mind blowing) journey into a dystopian future. So, picture this: a world where a tech giant, aka "The Every," (a fictional company which honestly kinda reminds me of google) has its fingers in every pie imaginable, from personal relationships to politics. It basically controls everything in society. Delaney Wells, our protagonist, is living in the middle of this Orwellian nightmare.</p>
+        <p>Now, "The Every" isn't just your run-of-the-mill tech company; it's practically taken over the world. And get this, they call their employees "Everyone" (get it? because it's employees are everyone). The novel paints a vivid picture of an indoctrinated(fancy brainwashed) society where there's no line between public and private, thanks to The Every's all-seeing eyes.</p>
+        <p>But, if you thought that there were no people left with free will, there are still those who remain who are able to resist the large scale indoctrination. The good news is, not everyone is buying into this high-tech dystopia propaganda stuff. Delaney and her housemate, Wes Makazian, decide to take matters into their own hands. Their mission? Infiltrate The Every's headquarters, go undercover as Employees (or Everyones), and spill the tea on the shady stuff happening behind their closed doors.</p>
+        <p>As I'm flipping through the pages, Delaney aces her way through interviews, ranging from technical to simply chatting over coffee. Her task? Digitizing customers' memories and photo albums. Pretty cool, right? But here's the twist - Wes, the tech whiz, gets noticed by The Every during the process. And I'm sensing a shift in the dynamic between him and Delaney.</p>
+        <p>Now, I haven't reached the final chapter, but things are heating up. Will Wes succumb to the allure of The Every's high-tech world? Could this cause a rift between him and Delaney?</p>
+        <h2>You agreed to this.</h2>
+        <p>We read science fiction for many reasons; to explore new realms, seek an escape from reality, and perhaps imagine a future where our challenges find resolution.</p>
+        <p>As we immerse ourselves in these narratives, we often find amusement in questioning how individuals or even societies in such narratives could make seemingly foolish decisions or how implausible events could transpire (Seriously, how can an entire society agree on systematic killing when they are literally immortal (Scythe)).</p>
+        <p>This book is not that.</p>
+        <p>Do you remember what virtual learning was like? Hours and hours of having to stay in a digital box, broadcasting every yawn, frown, and eye-roll for the entire class to see (I've seen some wild, unfortunate screenshots from my friends during virtual classes).</p>
+        <p>Teachers had dedicated slides telling students to turn on their cameras and microphones (We literally had a grade level discussion on how to present yourself on Zoom). </p>
+        <p>All this because we didn't want to be recorded. We felt “violated” and “exposed” having our faces plastered across 20 other screens.</p>
+        <p>Now picture this: the live feed doesn't conclude when the class ends. Your entire life, just out there, 24/7 for the entire world to see. Every rude comment, every questionable decision you make, permenantly stored in the depths of the internet to be potentially used against you in the future. </p>
+        <p>Yet we don't need to imagine. </p>
+        <p>Tech giants, like Meta and Google, have perfectly mapped out your interests and hobbies, attention span, and usage patterns to sell to third parties to be used against you (advertising, phishing attacks).</p>
+        <p>Even without this, people, all over the world, willingly share every detail about themselves on the internet — from what they eat and where they are to their faces and their circle of friends.</p>
+        <a href="https://en.hespress.com/27679-a-world-without-social-media-a-dystopian-reality-shook-the-world-yesterday.html">
+            <img src="https://e1.hespress.com/wp-content/uploads/2021/10/pexels-brett-jordan-5426402-900x600.jpg" alt="Description" width="100%">
+        </a>
+        <p>As I continue to navigate the pages of "The Every," I can't help but feel a chill down my spine, for in Eggers' dystopian vision, the line between fiction and our increasingly surveilled reality blurs.</p>
+        <b>PRESS ESCAPE TO EXIT POST.</b>
+    </div>
+
+    <div id="book-info-container-3" class="book-info-container" style="display: none;">
+        <h1>Fantasizing about computers for 877 words.</h1>
+        <p>Hello reader! Today, I'm here to share with you a recent literary discovery of mine: "The Chip War" by Chris Miller. First, allow me to preamble this post by saying, </p>
+        <p>I love technology.</p>
+        <p>(I'm aware what's about to come may sound weirdly obsessive and passionate but stick with me here).</p>
+        <p>Spending over 10 years living in the heart of Silicone Valley, surrounded by tech experts (seriously though, these books really make me homesick TT); there's some intangible… “thing” in the intricate dance of bits and bytes, ones and zeros, orchestrating the magically seamless operation of these technological marvels (alright, I’ll admit it – "seamless" is a bit of a stretch; debugging this very code took… long to say the least). The macro and micro patterns governing their behavior have long fascinated me, spanning from the mathematical theorems behind algorithms (though the proof for Korsaju’s algorithm is NOT fun) to the logic gates within these chips. The complexity emerging from a handful of rules is incredibly captivating.</p>
+        <p>And as you may have deduced from my blog, I spend a significant amount of my time behind a computer screen (seriously, the hours dedicated to preventing books from completely breaking...). Whether it's coding, 3D modeling, or the occasional computer building, from a young age my technological endeavours were pretty constant.</p>
+        <p>My recent excursions into the world of building computers and exploring computer hardware have led me to the doorstep of this book. I stumbled upon it at a local 교보문고 near my house (and can we talk about why foreign books have to be so EXPENSIVE?) while simply browsing (I know the saying usually goes, “don’t judge a book by it’s cover”, but the cover for this book is simply amazing and probably led me to choosing this book; the integration of the CPU pins into the stars of the American flag :OO)</p>
+        <h2>The book.</h2>
+        <p>Chris Miller takes us on a riveting journey through the history of semiconductor chips, from the groundbreaking article by Gordon E. Moore in 1965 to the present day. Moore's Law (though I think it’s dead by now), predicting the doubling of transistors on a the computer chip every two years, has shaped the entire landscape of computing, making this unassuming engineer's foresight one of the most influential in the tech world.</p>
+        <p>Miller delves into the “global oligopoly” (crazy vocabulary word right? I had to look up what it meant; apparently its like a monopoly but with multiple companies) that manufactures these chips, exploring the strategic implications for the world economy and geopolitical power. "Chip War" was not just the historical account I expected; it's a nonfiction thriller, a tale of ingenuity, greed, and power plays on a global stage (seriously, I was more excited by this book than some “fun” books recommended to me by teachers).</p>
+        <p>One of the focal points is China's role in the chip market. Despite massive government assistance, China still lags behind in chip production, relying heavily on imports (this was quite the surprise for me). Conversely, however, Taiwan emerges as a focal point of silicon chips, with Morris Chang, the founder of Taiwan Semiconductor Manufacturing Company (TSMC), at the helm.</p>
+        <p>In a world where “microchips are the new oil”, "Chip War" paints a vivid picture of how military, economic, and geopolitical power hinges on these tiny marvels of technology.</p>
+        <p>Economic historian Chris Miller masterfully illustrates the critical role of semiconductors in our lives, explaining how the U.S. became dominant in chip design and manufacturing, and how this technological prowess contributed to its victory in the Cold War.</p>
+        <a href="https://inspiredimperfection.com/adventures/computer-history-museum/">
+            <img src="https://inspiredimperfection.com/wp-content/uploads/2017/06/computer-history-museum-in-mountain-view-california.jpg" alt="Description" width="100%">
+        </a>
+        <p>Browsing through the pages (thanks to Chris Miller's effortlessly readable style) felt akin to strolling through the various rooms of the museum. Each chapter unfolded seamlessly, much like the curated exhibits that once fascinated me in the halls of the museum.</p>
+        <p>Every mention of a historical artifact in the book brought forth a rush of memories – from the punched card computer on which I spelled out my name to the very first lunar lander game, in which I used to DESTROY my friends at.</p>
+        <p>For me, at least, "The Chip War" not only delves into the evolution of computer technology but also serves as a nostalgic bridge, connecting the narratives of the book with the tangible experiences of my early encounters with the captivating world of computing at the museum.</p>
+        <b>PRESS ESCAPE TO EXIT POST.</b>
+    </div>
+    <div id="book-info-container-4" class="book-info-container" style="display: none;">
+        <h1>Will you even finish this post?</h1>
+        <p>Hello readers, today I will be introducing to you my (hopefully) final book/blog entry of this year-long reading journey. The book I want to talk about today is 'Stolen Focus' by Johann Hari. I've had this book for quite a while now, and somewhat ironically couldn't get myself to pick it up again after a break. I finally picked it back up and I want to share and discuss some important topics I think this book covers.</p>
+        <h2>“It's not your fault you can't focus. It's by design.”</h2>
+        <p>Have you noticed that you've been busy all the time recently? For the past week? Month? Semester? If you really think about it, we're busy literally ALL THE TIME yet what have you actually accomplished? (Does it really take over two months to draft a two-page graphic novel?)</p>
+        <p>Our focus, especially as students, is already stretched so incredibly thin; between blog posts, lab reports, and that upcoming math test on Monday. Even without the absolute monopoly that social media and our devices have on our concentration, our focus is a resource that we just cannot get enough of.</p>
+        <p>The book really insists on this theme throughout the book; our focus is stolen, not lost. As exemplified by the quote I selected above, we really do live in an environment meticulously created so that you can't focus.</p>
+        <h2>"It's not just you."</h2>
+        <p>Hari highlights how our own brains are wired to seek out novelty and stimulation, and in the age of social media and rampant capitalism, it's almost inevitable that such apps are engineered to captivate our attention for as long as possible. </p>
+        <p>And these apps are constantly vying for our attention, waiting for that one glimpse (I have to admit this happened to me too many times during the writing of this blog. A quick Google search checking the authors name and I wake up 3 hours later with a blank Google Doc watching a video on how to tie a tie inside a tie).</p>
+        <p>Hari calls attention to how common it is to blame ourselves, criticizing our apparent lack of self control; we are handed self-help courses and “tips and tricks” to alter our own habits in an attempt to catch up to the ever accelerating system.</p>
+        <p>Research suggests that we simply can't. There's a finite limit to how quickly we can process information, and the biology of the brain simply hasn't changed in recent human history. The truth, as Hari suggests, is that “[we] are living in a system that is pouring acid on [our] attention every day”, we are trying to swim upstream in a river of endless content and notifications.</p>
+        <h2>A global issue.</h2>
+        <p>In 2016, Denmark's Technical University conducted a study focusing on the lengths of time topics were discussed online before people began losing interest. They found that these trends appear and go away at faster and faster rates in a trend that predates the internet. In 2013, according to the DTU, “topics trended on Twitter for an average of 17.5 hours” before people lost interest and moved to different topics. However, in 2016, they found that the number had decreased to just over 11 hours. </p>
+        <p>This trend has been dubbed the "Great Acceleration," highlighting the rapid pace at which topics gain and lose momentum in online conversation. The ease and speed with which we can access information have directly contributed to shrinking attention spans, contributing to this phenomenon.</p>
+        <p>And this isn't just an individual issue, it's a global epidemic.</p>
+        <p>Our attention and concentration is at an all-time low and it could have serious implications if we don't flatten the curve.</p>
+        <h2>“Empathy is one of the most complex forms of attention we have - and the most precious.”</h2>
+        <p>People are growing less empathetic, less patient, and more sheltered, living in the confines of small social media communities that they are comfortable with. They don't exercise the muscle and skill that is empathy. </p>
+        <p>This constant and catered connectivity has ironically led to a disconnect in society.</p>
+        <p>Furthermore, the essence of democracy necessitates that the population sustains attention spans long enough to discern genuine issues, hold leaders accountable for their actions or inactions, and remain focused (not being like “OMG did you see that celebrity recently!?!?!”).</p>
+        <p>Hari believes that attention lies at the heart of problem solving. In fact, He asserts that one of the primary impediments to addressing significant issues such as climate change is the deficiency in focus.</p>
+        <b>These issues, combined with the polarizing effects of social media presents a serious risk to our society.</b>
+        <h2>So, what can we do about it? How can we reclaim our focus in a world designed to steal it away?</h2>
+        <p>Although this is a gross oversimplification, the six things Johann Hari has done to improve his attention were:</p>
+        <p>1. Commit to tasks and avoid switching tasks.</p>
+        <p>2. Avoid negative self-talk.</p>
+        <p>3. Take some time off of social media.</p>
+        <p>4. Embrace the wandering of the mind, it does not always mean you have lost focus.</p>
+        <p>5. Sleep.</p>
+        <p>6. Embrace unstructured free time.</p>
+        <p>Thank you for listening to my extremely long rant and I hope it wasn't too much of a depressing end to this blog (hmm, lets just say theres no pictures in this one because its testing your focus ;>).</p>
+        <b>PRESS ESCAPE TO EXIT POST.</b>
+    </div>  
+    <div id="book-info-container-5" class="book-info-container" style="display: none;">
+        <h1>Exploring the Slow Burn of 'The Handmaid's Tale' by Margaret Atwood</h1>
+        <p>Hi readers, today I'm here to talk about a new book I've been reading recently called the 'Handmaid's Tale' by Margaret Atwood. This book was somewhat reluctantly borrowed to me by my English teacher, Dr. Smith, for two lessons when I forgot my independent reading book until I found a copy of it in my home (probably from some book drive/fair). </p>
+        <p>I always had the title of this book somewhere in the back of my mind and for the longest time I thought that this book was just another boring classic about a “handmaid” in the 1600s or something.</p>
+        <p>Recently as I began to take more interest in science fiction, especially the genre of slightly older, dystopian style science fiction works (something like Dune or Brave New World), I discovered this book and put it on my long list of items for future-me.</p>
+        <p>Instantly, I was intrigued by the premise and enjoyed the slower paced, “slice-of-life” style of writing rather than forcing a story progression. I found that the appeal of science fiction to me lies more within the initial premise or “lore” rather than the story that takes place within it (I spent like 3 hours reading the entire Dune wiki).</p>
+        <p>It's what some would call slow and boring but I found it to be interesting in that it's very “thorough” with its story and explores the many implications based on the initial premise.</p>
+        <p>I think the success of this novel can be attributed to its grounded nature and eerie realism. The metaphor of the boiling frog for the creeping normality of the acts that take place in this book stood out to me and I found myself seeing some of the things that we've just all gotten used to.</p>
+        <a href="/">
+            <img src="https://as2.ftcdn.net/v2/jpg/05/77/58/05/1000_F_577580558_wRImcqZ55f6F5We6ACOR3s7jsFoEi26B.jpg" alt="Description" width="100%">
+        </a>
+        <p>Technology, due to its rapid innovation, is a common anecdote of this. (Though a more positive example) I still remember when I was lying in bed with my iPad (the one that had the water droplet wallpaper and like 1 inch bevels) waiting over 30 seconds for a Youtube music video (regrettably it was the gummy bear song) to load due to what I once knew as “buffering” (there was a whole text message and spinning wheel animation for this). Fast forward maybe four, five years and here we are; TikTok, Youtube Shorts that load instantaneously, reloading the video in rage dozens of times if it doesn't load right away, and 480p being “unacceptable” to watch videos in.</p>
+        <p>Anyway, thanks for listening to my brief thoughts on this book and I would recommend it to anyone who was at least a little bit interested in this blog post (as you're probably gonna read it anyway in school)!</p>
+        <b>PRESS ESCAPE TO EXIT POST.</b>
+    </div>
+    <canvas id="bg"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/21.0.0/tween.umd.js"></script>
+</body>
+</html>
